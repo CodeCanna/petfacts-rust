@@ -1,9 +1,12 @@
 [package]
-name = "petfacts-rust"
+name = "petfacts"
 description = "A simple CLI program to print out cat and dog facts to the console."
 documentation = ""
 readme = "README.md"
-repository = ""
+repository = "https://github.com/CodeCanna/petfacts-rust"
+homepage = "https://github.com/CodeCanna/petfacts-rust"
+keywords = ["cli", "pets", "facts", "dog", "cat"]
+categories = ["command-line-utilities"]
 version = "0.1.0"
 edition = "2021"
 
