@@ -3,7 +3,7 @@ Petfacts is a small command line utility for printing out dog or cat facts to th
 
 The Python edition can be found [here](https://github.com/CodeCanna/petfacts) and has more features at the moment.  I'm working to re-write petfacts fully in Rust.
 
-## Installation:
+## Installation
 To install first make sure you have Cargo installed and open a console window; type `cargo install petfacts` and Cargo should take care of the rest.
 
 
