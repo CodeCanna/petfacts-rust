@@ -10,5 +10,6 @@ To install first make sure you have Cargo installed and open a console window; t
 ## Usage
 * `petfacts dog` - Print a random dog fact to the console.
 * `petfacts cat` - Print a random cat fact to the console.
+* `petfacts` - Print a fact but dog or cat is chosen at random.
 * `petfacts help` - Print the help screen.
-* `petfacts [no args]` - Print a fact but dog or cat is chosen at random.
+* `petfacts version` - Print current petfacts version
