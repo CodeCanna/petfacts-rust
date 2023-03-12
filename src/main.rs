@@ -1,8 +1,10 @@
 use json;
 use rand::{thread_rng, Rng};
 use reqwest::{self, Result};
-use std::{env, io::stdout, io::Write, thread, time::Duration};
+use std::{env, io::{stdout}, io::Write, thread, time::Duration, fs};
+use toml::Table;
 
+// Define custom error messages
 fn print_error_message(animal: &str) -> String {
     let cat_error_message = String::from("Failed to retrieve Cat Fact, check internet connection.");
     let dog_error_message = String::from("Failed to retrieve Dog Fact, check internet connection.");
@@ -12,6 +14,15 @@ fn print_error_message(animal: &str) -> String {
     } else {
         dog_error_message
     }
+}
+
+// Get petfacts version from Cargo.toml
+fn get_version() -> String {
+    let toml_file = fs::read_to_string("Cargo.toml")
+        .expect("Couldn't find Cargo.toml, this is a major problem")
+        .parse::<Table>()
+        .unwrap();
+    toml_file["package"]["version"].to_string()
 }
 
 // Get the fact data based on the URL that is passed
@@ -80,6 +91,7 @@ fn main() {
                 };
             }
             _ if "help".to_string() == args[1] => print_help(),
+            _ if "version".to_string() == args[1] => println!("Petfacts Version: {}", get_version()),
             _ => {
                 println!("Invalid option: {}", args[1]);
                 print_help();
