@@ -18,11 +18,7 @@ fn print_error_message(animal: &str) -> String {
 
 // Get petfacts version from Cargo.toml
 fn get_version() -> String {
-    let toml_file = fs::read_to_string("Cargo.toml")
-        .expect("Couldn't find Cargo.toml, this is a major problem")
-        .parse::<Table>()
-        .unwrap();
-    toml_file["package"]["version"].to_string()
+    "0.1.1".to_string()
 }
 
 // Get the fact data based on the URL that is passed
