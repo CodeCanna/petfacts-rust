@@ -78,7 +78,7 @@ fn main() {
 
                     Err(_) => println!("{}", print_error_message("cat")),
                 };
-            }
+            },
             _ if "dog".to_string() == args[1] => {
                 let fact = get_fact("http://dog-api.kinduff.com/api/facts?number=1");
                 match fact {
@@ -89,7 +89,7 @@ fn main() {
 
                     Err(_) => println!("{}", print_error_message("dog")),
                 };
-            }
+            },
             _ if "help".to_string() == args[1] => print_help(),
             _ if "version".to_string() == args[1] => println!("Petfacts Version: {}", get_version()),
             _ => {
