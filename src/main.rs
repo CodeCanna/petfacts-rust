@@ -54,6 +54,7 @@ fn print_help() {
     println!("[dog] -- Print out a random dog fact to the console screen.");
     println!("[cat] -- Print out a random cat fact to the console screen.");
     println!("[help] -- Print this help message.                         ");
+    println!("[version] -- Print the current petfacts version.           ");
     println!("-----------------------------------------------------------");
 }
 
