@@ -8,7 +8,7 @@ homepage = "https://github.com/CodeCanna/petfacts-rust"
 keywords = ["cli", "pets", "facts", "dog", "cat"]
 categories = ["command-line-utilities", "fun"]
 license-file = "LICENSE"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 [[bin]]
