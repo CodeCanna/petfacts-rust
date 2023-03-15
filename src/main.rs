@@ -17,7 +17,7 @@ fn print_error_message(animal: &str) -> String {
 
 // Get petfacts version from Cargo.toml
 fn get_version() -> String {
-    "0.1.2".to_string()
+    "0.1.3".to_string()
 }
 
 // Get the fact data based on the URL that is passed
