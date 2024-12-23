@@ -1,7 +1,7 @@
 use json;
 use rand::{thread_rng, Rng};
 use reqwest::{self, Result};
-use std::{env, io::{stdout}, io::Write, thread, time::Duration};
+use std::{env, io::{stdout, io::Write, thread, time::Duration};
 
 // Define custom error messages
 fn print_error_message(animal: &str) -> String {
