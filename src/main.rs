@@ -1,7 +1,7 @@
 use json;
 use rand::{thread_rng, Rng};
 use reqwest::{self, Result};
-use std::{env, io::{stdout, io::Write, thread, time::Duration};
+use std::{env, io::{stdout, Write} ,thread, time::Duration};
 
 // Define custom error messages
 fn print_error_message(animal: &str) -> String {
@@ -60,7 +60,7 @@ fn print_help() {
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-
+    
     if args.len() > 1 {
         // If an argument is passed handle it
         match args[1].to_lowercase() {
