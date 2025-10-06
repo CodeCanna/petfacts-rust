@@ -60,12 +60,13 @@ fn print_help() {
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+    let (dog_url, cat_url): (String, String) = (String::from("https://dogapi.dog/api/v2/facts"), String::from("https://catfact.ninja/fact"));
     
     if args.len() > 1 {
         // If an argument is passed handle it
         match args[1].to_lowercase() {
             _ if "cat".to_string() == args[1] => {
-                let fact = get_fact("https://catfact.ninja/fact");
+                let fact = get_fact(&cat_url);
                 match fact {
                     Ok(f) => {
                         let fact_json = json::parse(&f.as_str()).unwrap();
@@ -76,11 +77,11 @@ fn main() {
                 };
             },
             _ if "dog".to_string() == args[1] => {
-                let fact = get_fact("http://dog-api.kinduff.com/api/facts?number=1");
+                let fact = get_fact(&dog_url);
                 match fact {
                     Ok(f) => {
                         let fact_json = json::parse(&f.to_string()).unwrap();
-                        type_string(&fact_json["facts"][0].to_string());
+                        type_string(&fact_json["data"][0]["attributes"]["body"].to_string());
                     }
 
                     Err(_) => println!("{}", print_error_message("dog")),
@@ -96,7 +97,7 @@ fn main() {
     } else {
         // If no argument is passed choose a dog or a cat fact randomly
         if random_animal() == "cat".to_string() {
-            let fact = get_fact("https://catfact.ninja/fact");
+            let fact = get_fact(&cat_url);
             match fact {
                 Ok(f) => {
                     let fact_json = json::parse(&f.as_str()).unwrap();
@@ -106,11 +107,11 @@ fn main() {
                 Err(_) => println!("{}", print_error_message("cat")),
             };
         } else {
-            let fact = get_fact("http://dog-api.kinduff.com/api/facts?number=1");
+            let fact = get_fact(&dog_url);
             match fact {
                 Ok(f) => {
                     let fact_json = json::parse(&f.to_string()).unwrap();
-                    type_string(&fact_json["facts"][0].to_string());
+                    type_string(&fact_json["data"][0]["attributes"]["body"].to_string());
                 }
 
                 Err(_) => println!("{}", print_error_message("dog")),
