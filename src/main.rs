@@ -1,5 +1,5 @@
 use json;
-use rand::{thread_rng, Rng};
+use rand::Rng;
 use reqwest::{self, Result};
 use std::{env, io::{stdout, Write} ,thread, time::Duration};
 
@@ -30,7 +30,6 @@ fn get_fact(url: &str) -> Result<String> {
 
 // Return dog or cat as a string randomly
 fn random_animal() -> String {
-    // if thread_rng().gen() {
     if rand::rng().random::<bool>() {
         String::from("dog")
     } else {
