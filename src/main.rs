@@ -64,8 +64,8 @@ fn main() {
     
     if args.len() > 1 {
         // If an argument is passed handle it
-        match args[1].to_lowercase() {
-            _ if "cat".to_string() == args[1] => {
+        match args[1].to_lowercase().as_str() {
+            "cat" => {
                 let fact = get_fact(&cat_url);
                 match fact {
                     Ok(f) => {
@@ -76,7 +76,7 @@ fn main() {
                     Err(_) => println!("{}", print_error_message("cat")),
                 };
             },
-            _ if "dog".to_string() == args[1] => {
+            "dog" => {
                 let fact = get_fact(&dog_url);
                 match fact {
                     Ok(f) => {
@@ -87,8 +87,8 @@ fn main() {
                     Err(_) => println!("{}", print_error_message("dog")),
                 };
             },
-            _ if "help".to_string() == args[1] => print_help(),
-            _ if "version".to_string() == args[1] => println!("Petfacts Version: {}", get_version()),
+            "help" => print_help(),
+            "version" => println!("Petfacts Version: {}", get_version()),
             _ => {
                 println!("Invalid option: {}", args[1]);
                 print_help();
